@@ -9,6 +9,8 @@ export default function GalleryPage() {
   const [images, setImages] = useState<GalleryItem[]>([]);
   const [filter, setFilter] = useState("All");
 
+  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+
   useEffect(() => {
     getGalleryImages().then(setImages);
   }, []);
@@ -50,7 +52,11 @@ export default function GalleryPage() {
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredImages.map((img) => (
-            <div key={img.id} className="group relative aspect-[4/5] rounded-[3rem] overflow-hidden bg-bg-soft shadow-xl">
+            <div 
+              key={img.id} 
+              onClick={() => setSelectedImage(img)}
+              className="group relative aspect-[4/5] rounded-[3rem] overflow-hidden bg-bg-soft shadow-xl cursor-pointer"
+            >
               <img 
                 src={img.image} 
                 alt={img.title}
@@ -78,6 +84,38 @@ export default function GalleryPage() {
           </div>
         )}
       </div>
+
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[60] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div 
+            className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              onClick={() => setSelectedImage(null)}
+              className="absolute -top-12 right-0 md:right-0 text-white hover:text-primary transition-colors flex items-center gap-2"
+            >
+              Close <span className="bg-white/10 p-2 rounded-full hover:bg-white/20"><Maximize2 size={16} className="rotate-45" /></span> 
+            </button>
+            
+            <img 
+              src={selectedImage.image} 
+              alt={selectedImage.title} 
+              className="rounded-3xl shadow-2xl max-w-full max-h-[80vh] object-contain"
+            />
+            
+            <div className="mt-6 text-center">
+              <span className="text-accent font-bold uppercase tracking-widest text-xs mb-2 block">{selectedImage.category}</span>
+              <h3 className="text-2xl font-bold text-white">{selectedImage.title}</h3>
+            </div>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </main>
   );
