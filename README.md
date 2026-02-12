@@ -6,6 +6,7 @@ This is a modern, responsive redesign of the Koforidua Training Center (KTC) web
 
 - **Modern Institutional Design**: A premium green and gold palette tailored for Ghanaian institutional standards.
 - **Responsive Navigation**: Adaptive glassmorphism navbar for all device sizes.
+- **Digital Institutional Identity**: A refined "About KTC" experience featuring a high-impact horizontal history timeline, organizational visualizations, and professional leadership profiles.
 - **Dark Mode**: Native system preference detection and local storage persistence.
 - **Digital Services**: 
   - **Online Admissions**: Multi-step application form UI.

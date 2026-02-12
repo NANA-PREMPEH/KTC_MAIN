@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #006B3F;
+  --color-primary-dark: #004D2E;
+  --color-accent: #FFD700;
+  --color-accent-dark: #DAA520;
+  --color-secondary: #1F2937;
+  --color-bg-soft: #F9FAFB;
+  
+  --font-heading: var(--font-outfit);
+  --font-body: var(--font-inter);
+}
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #111827;
+  --primary: #006B3F;
+  --primary-dark: #004D2E;
+  --accent: #FFD700;
+  --secondary: #1F2937;
+  --bg-soft: #F9FAFB;
+}
+
+.dark {
+  --background: #0F172A;
+  --foreground: #F8FAFC;
+  --primary: #10B981;
+  --primary-dark: #059669;
+  --accent: #FBBF24;
+  --secondary: #F1F5F9;
+  --bg-soft: #1E293B;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-outfit), sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.glass {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background-color: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
