@@ -10,8 +10,8 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "About KTC", href: "/about" },
   { name: "Programs", href: "/programs" },
-  { name: "Admissions", href: "/admissions" },
-  { name: "Student Portal", href: "/portal" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "News", href: "/news" },
   { name: "Contact", href: "/contact" },
 ];
 
