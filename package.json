@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "develop": "npm run develop --prefix cms",
+    "dev:all": "npx concurrently \"npm run dev\" \"npm run develop --prefix cms\"",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

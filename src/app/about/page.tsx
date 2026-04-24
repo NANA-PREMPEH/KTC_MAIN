@@ -52,21 +52,21 @@ export default function AboutPage() {
       </div>
 
       {/* History Timeline */}
-      <section className="py-32 bg-secondary overflow-hidden relative">
-        {/* Background Large Text */}
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none opacity-[0.03] select-none">
-          <span className="text-[20vw] font-black text-white leading-none">JOURNEY</span>
+      <section className="py-24 bg-secondary overflow-hidden relative">
+        {/* Background Text */}
+        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none opacity-[0.02] select-none">
+          <span className="text-[10vw] font-black text-white leading-none uppercase">Institutional Journey</span>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 mb-20 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 mb-16 relative z-10">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
             <div className="flex items-center gap-6 text-accent">
-              <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center">
-                <History size={40} />
+              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                <History size={28} />
               </div>
-              <h2 className="text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter">Our History</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-white uppercase tracking-tighter">Our History</h2>
             </div>
-            <p className="text-xl text-white/40 italic max-w-md">
+            <p className="text-lg text-white/40 italic max-w-md">
               Tracing the milestones that shaped the Ministry of Roads and Highways Training Centre into a regional powerhouse.
             </p>
           </div>
@@ -74,20 +74,20 @@ export default function AboutPage() {
         
         <div className="relative z-10">
           {/* Main Timeline Line with Glow */}
-          <div className="absolute top-1/2 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-accent/30 to-transparent -translate-y-1/2 shadow-[0_0_20px_rgba(255,215,0,0.2)]"></div>
+          <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/30 to-transparent -translate-y-1/2 shadow-[0_0_15px_rgba(255,215,0,0.1)]"></div>
           
           <div className="flex gap-12 overflow-x-auto px-12 pb-16 no-scrollbar scroll-smooth">
             {historyEvents.map((event, i) => (
-              <div key={i} className="min-w-[350px] relative group pt-16">
+              <div key={i} className="min-w-[320px] relative group pt-16">
                 {/* Year Circle with Hover Glow */}
-                <div className="absolute top-0 left-12 w-10 h-10 rounded-full bg-accent border-[6px] border-secondary -translate-y-1/2 z-20 group-hover:scale-150 group-hover:shadow-[0_0_30px_rgba(255,215,0,0.6)] transition-all duration-500 cursor-pointer flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-secondary"></div>
+                <div className="absolute top-0 left-12 w-8 h-8 rounded-full bg-accent border-[4px] border-secondary -translate-y-1/2 z-20 group-hover:scale-125 group-hover:shadow-[0_0_20px_rgba(255,215,0,0.4)] transition-all duration-500 cursor-pointer flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 rounded-full bg-secondary"></div>
                 </div>
 
-                <div className="glass p-10 rounded-[3rem] border-white/10 hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/5 group-hover:-translate-y-2">
-                  <span className="text-5xl font-black text-accent mb-6 block leading-none opacity-40 group-hover:opacity-100 transition-opacity">{event.year}</span>
-                  <h3 className="text-2xl font-bold text-white mb-4 tracking-tight">{event.title}</h3>
-                  <p className="text-base text-white/60 italic leading-relaxed">{event.description}</p>
+                <div className="glass p-8 rounded-[2.5rem] border-white/10 hover:border-accent/50 transition-all duration-500 hover:shadow-xl hover:shadow-accent/5 group-hover:-translate-y-1">
+                  <span className="text-3xl font-black text-accent mb-4 block leading-none opacity-40 group-hover:opacity-100 transition-opacity">{event.year}</span>
+                  <h3 className="text-xl font-bold text-white mb-2 tracking-tight">{event.title}</h3>
+                  <p className="text-sm text-white/60 italic leading-relaxed">{event.description}</p>
                 </div>
               </div>
             ))}

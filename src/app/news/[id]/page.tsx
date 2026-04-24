@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { getLatestNews, NewsItem } from "@/lib/cms_v2";
+import { getNewsById, NewsItem } from "@/lib/cms_v2";
 import Footer from "@/components/Footer";
 import { Calendar, Tag, ArrowLeft, Share2 } from "lucide-react";
 import Link from "next/link";
@@ -13,11 +13,12 @@ export default function NewsDetailPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getLatestNews().then((news: NewsItem[]) => {
-      const found = news.find((n: NewsItem) => n.id === id);
-      setArticle(found || null);
-      setLoading(false);
-    });
+    if (typeof id === "string") {
+      getNewsById(id).then((news) => {
+        setArticle(news);
+        setLoading(false);
+      });
+    }
   }, [id]);
 
   if (loading) return <div className="min-h-screen pt-32 text-center font-bold">Loading article...</div>;

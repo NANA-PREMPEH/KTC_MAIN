@@ -1,10 +1,10 @@
 "use client";
 
 import Footer from "@/components/Footer";
-import { getLatestNews, getEvents, NewsItem, EventItem } from "@/lib/cms_v2";
+import { getLatestNews, getEvents, getAnnouncements, NewsItem, EventItem, AnnouncementItem } from "@/lib/cms_v2";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Calendar, ChevronRight, Tag, Bell, Newspaper, CalendarDays } from "lucide-react";
+import { Calendar, ChevronRight, Tag, Bell, Newspaper, CalendarDays, AlertTriangle, User } from "lucide-react";
 import EventsCalendar from "@/components/EventsCalendar";
 
 type TabType = "news" | "events" | "announcements";
@@ -13,15 +13,13 @@ export default function NewsPage() {
   const [activeTab, setActiveTab] = useState<TabType>("news");
   const [news, setNews] = useState<NewsItem[]>([]);
   const [events, setEvents] = useState<EventItem[]>([]);
+  const [announcements, setAnnouncements] = useState<AnnouncementItem[]>([]);
 
   useEffect(() => {
     getLatestNews().then(setNews);
     getEvents().then(setEvents);
+    getAnnouncements().then(setAnnouncements);
   }, []);
-
-  const blogs = news.filter(n => n.category === "Blog");
-  const announcements = news.filter(n => n.category === "Announcements");
-  const generalNews = news.filter(n => n.category === "News");
 
   return (
     <main className="min-h-screen pt-32">
@@ -107,20 +105,49 @@ export default function NewsPage() {
 
           {activeTab === "announcements" && (
             <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+              {announcements.length === 0 && (
+                <div className="text-center py-20 text-secondary/40">
+                  <Bell size={48} className="mx-auto mb-4 opacity-50" />
+                  <p className="text-lg font-bold">No announcements at this time</p>
+                  <p className="text-sm mt-2">Check back later for official memos and notices.</p>
+                </div>
+              )}
               {announcements.map((item) => (
-                <div key={item.id} className="glass p-8 rounded-[2.5rem] border-l-8 border-accent group hover:bg-white hover:shadow-xl transition-all">
+                <div 
+                  key={item.id} 
+                  className={`glass p-8 rounded-[2.5rem] group hover:bg-white hover:shadow-xl transition-all ${
+                    item.priority === "High" 
+                      ? "border-l-8 border-red-500" 
+                      : "border-l-8 border-accent"
+                  }`}
+                >
                   <div className="flex flex-col md:flex-row justify-between gap-6">
                     <div className="space-y-4 max-w-4xl">
-                      <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest">
-                        <Bell size={14} /> Official Memo
+                      <div className="flex items-center gap-3 flex-wrap">
+                        <span className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest">
+                          <Bell size={14} /> Official Memo
+                        </span>
+                        {item.priority === "High" && (
+                          <span className="flex items-center gap-1 px-3 py-1 bg-red-50 text-red-600 text-xs font-bold rounded-full">
+                            <AlertTriangle size={12} /> High Priority
+                          </span>
+                        )}
                       </div>
                       <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{item.title}</h3>
-                      <p className="text-secondary/60 italic leading-relaxed">{item.snippet}</p>
-                    </div>
-                    <div className="shrink-0 flex items-center">
-                      <Link href={`/news/${item.id}`} className="bg-bg-soft text-secondary px-6 py-3 rounded-2xl font-bold hover:bg-secondary hover:text-white transition-all">
-                        View Notice
-                      </Link>
+                      <p className="text-secondary/60 italic leading-relaxed">{item.content}</p>
+                      <div className="flex items-center gap-6 text-xs text-secondary/40 font-bold uppercase tracking-widest">
+                        <span className="flex items-center gap-1.5">
+                          <Calendar size={12} /> {item.date}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <User size={12} /> {item.author}
+                        </span>
+                        {item.expirationDate && (
+                          <span className="text-amber-600">
+                            Expires: {item.expirationDate}
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -133,3 +160,4 @@ export default function NewsPage() {
     </main>
   );
 }
+
