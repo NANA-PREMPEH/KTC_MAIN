@@ -47,14 +47,14 @@ export default function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="w-10 h-10 rounded-full bg-secondary/5 animate-pulse" />
+      <div className="w-10 h-10 rounded-full theme-fill-soft animate-pulse" />
     );
   }
 
   return (
     <button
       onClick={toggleTheme}
-      className="w-10 h-10 rounded-full glass flex items-center justify-center text-secondary/60 hover:text-primary transition-all active:scale-95"
+      className="w-10 h-10 rounded-full glass flex items-center justify-center theme-text-muted hover:text-primary transition-all active:scale-95"
       aria-label="Toggle Theme"
     >
       {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}

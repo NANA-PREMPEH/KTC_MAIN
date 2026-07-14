@@ -10,3 +10,14 @@
 ✓ Starting...
 Creating turbopack project { dir: 'C:\\Users\\HP\\Documents\\GitHub\\KTC_MAIN', testMode: true }
 ✓ Ready in 4.4s
+ HEAD / 200 in 4.0s (compile: 3.4s, render: 585ms)
+ GET / 200 in 418ms (compile: 15ms, render: 403ms)
+ GET / 200 in 487ms (compile: 20ms, render: 467ms)
+✓ Compiled in 1291ms
+ GET / 200 in 1129ms (compile: 593ms, render: 536ms)
+✓ Compiled in 1436ms
+✓ Compiled in 302ms
+✓ Compiled in 871ms
+✓ Compiled in 498ms
+ HEAD / 200 in 1347ms (compile: 570ms, render: 777ms)
+ GET / 200 in 359ms (compile: 30ms, render: 329ms)

@@ -20,9 +20,18 @@
   --accent: #FFD700;
   --secondary: #1F2937;
   --bg-soft: #F9FAFB;
+  --theme-text-strong: #111827;
+  --theme-text-soft: rgba(17, 24, 39, 0.8);
+  --theme-text-muted: rgba(17, 24, 39, 0.62);
+  --theme-text-faint: rgba(17, 24, 39, 0.38);
+  --theme-border-soft: rgba(17, 24, 39, 0.1);
+  --theme-fill-soft: rgba(17, 24, 39, 0.08);
+  --theme-glass-hover: rgba(255, 255, 255, 0.92);
+  --theme-shadow-strong: 0 24px 48px rgba(15, 23, 42, 0.08);
 }
 
 .dark {
+  color-scheme: dark;
   --background: #0F172A;
   --foreground: #F8FAFC;
   --primary: #10B981;
@@ -30,6 +39,14 @@
   --accent: #FBBF24;
   --secondary: #F1F5F9;
   --bg-soft: #1E293B;
+  --theme-text-strong: #F8FAFC;
+  --theme-text-soft: rgba(248, 250, 252, 0.8);
+  --theme-text-muted: rgba(248, 250, 252, 0.65);
+  --theme-text-faint: rgba(248, 250, 252, 0.4);
+  --theme-border-soft: rgba(248, 250, 252, 0.1);
+  --theme-fill-soft: rgba(248, 250, 252, 0.1);
+  --theme-glass-hover: rgba(255, 255, 255, 0.1);
+  --theme-shadow-strong: 0 24px 48px rgba(2, 6, 23, 0.35);
 }
 
 body {
@@ -53,4 +70,40 @@ h1, h2, h3, h4, h5, h6 {
 .dark .glass {
   background-color: rgba(15, 23, 42, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.theme-text-strong {
+  color: var(--theme-text-strong);
+}
+
+.theme-text-soft {
+  color: var(--theme-text-soft);
+}
+
+.theme-text-muted {
+  color: var(--theme-text-muted);
+}
+
+.theme-text-faint {
+  color: var(--theme-text-faint);
+}
+
+.theme-border-soft {
+  border-color: var(--theme-border-soft);
+}
+
+.theme-fill-soft {
+  background-color: var(--theme-fill-soft);
+}
+
+.theme-hover-glass:hover {
+  background-color: var(--theme-glass-hover);
+}
+
+.theme-shadow-strong {
+  box-shadow: var(--theme-shadow-strong);
+}
+
+.theme-placeholder-faint::placeholder {
+  color: var(--theme-text-faint);
 }

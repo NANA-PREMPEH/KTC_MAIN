@@ -21,7 +21,7 @@ export default function Hero() {
             Empowering the Next Generation of <span className="text-primary italic">Professionals</span>
           </h1>
           
-          <p className="text-lg text-secondary/70 leading-relaxed max-w-lg">
+          <p className="text-lg theme-text-soft leading-relaxed max-w-lg">
             Koforidua Training Center (KTC) provides world-class technical education and consultancy services in Ghana's transport and infrastructure sector.
           </p>
           
@@ -32,25 +32,25 @@ export default function Hero() {
             >
               Get Started <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            <button className="px-8 py-4 glass rounded-full font-bold flex items-center gap-2 hover:bg-white hover:shadow-lg transition-all active:scale-95">
+            <button className="px-8 py-4 glass rounded-full font-bold theme-text-strong theme-hover-glass transition-all active:scale-95 flex items-center gap-2 hover:shadow-lg">
               <Play size={20} className="text-primary" fill="currentColor" /> Watch Intro
             </button>
           </div>
 
-          <div className="flex items-center gap-6 pt-8 border-t border-secondary/10">
+          <div className="flex items-center gap-6 pt-8 border-t theme-border-soft">
             <div>
               <p className="text-2xl font-black text-primary">25+</p>
-              <p className="text-xs font-bold uppercase tracking-wider text-secondary/50">Years Legacy</p>
+              <p className="text-xs font-bold uppercase tracking-wider theme-text-muted">Years Legacy</p>
             </div>
-            <div className="w-px h-10 bg-secondary/10"></div>
+            <div className="w-px h-10 theme-fill-soft"></div>
             <div>
               <p className="text-2xl font-black text-primary">10k+</p>
-              <p className="text-xs font-bold uppercase tracking-wider text-secondary/50">Graduates</p>
+              <p className="text-xs font-bold uppercase tracking-wider theme-text-muted">Graduates</p>
             </div>
-            <div className="w-px h-10 bg-secondary/10"></div>
+            <div className="w-px h-10 theme-fill-soft"></div>
             <div>
               <p className="text-2xl font-black text-primary">50+</p>
-              <p className="text-xs font-bold uppercase tracking-wider text-secondary/50">Partners</p>
+              <p className="text-xs font-bold uppercase tracking-wider theme-text-muted">Partners</p>
             </div>
           </div>
         </div>
@@ -61,14 +61,14 @@ export default function Hero() {
           </div>
           
           {/* Floating Card */}
-          <div className="absolute -bottom-10 -left-10 glass p-6 rounded-3xl shadow-2xl max-w-[240px] animate-float z-20">
+          <div className="absolute -bottom-10 -left-10 glass theme-shadow-strong p-6 rounded-3xl shadow-2xl max-w-[240px] animate-float z-20">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
                 <GraduationCap className="text-primary" size={20} />
               </div>
               <p className="font-bold text-sm">Next Intake: Aug 2026</p>
             </div>
-            <p className="text-xs text-secondary/60 italic leading-relaxed">
+            <p className="text-xs theme-text-muted italic leading-relaxed">
               "Joining KTC was the best career decision I ever made." - Anita A.
             </p>
           </div>

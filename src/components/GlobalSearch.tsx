@@ -29,10 +29,10 @@ export default function GlobalSearch() {
     <>
       <button 
         onClick={() => setIsOpen(true)}
-        className="p-2 text-secondary/40 hover:text-primary transition-colors flex items-center gap-2 group"
+        className="p-2 theme-text-faint hover:text-primary transition-colors flex items-center gap-2 group"
       >
         <SearchIcon size={20} />
-        <span className="hidden md:block text-[10px] font-bold uppercase tracking-widest text-secondary/20 group-hover:text-primary/40">Cmd + K</span>
+        <span className="hidden md:block text-[10px] font-bold uppercase tracking-widest theme-text-faint group-hover:text-primary/40">Cmd + K</span>
       </button>
 
       {isOpen && (
@@ -46,20 +46,20 @@ export default function GlobalSearch() {
                 autoFocus
                 type="text" 
                 placeholder="Search programs, documents, news..."
-                className="flex-1 bg-transparent border-none outline-none text-xl font-heading font-bold placeholder:text-secondary/20"
+                className="flex-1 bg-transparent border-none outline-none text-xl font-heading font-bold theme-placeholder-faint"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
               />
               <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-primary/5 rounded-full">
-                <X size={20} className="text-secondary/40" />
+                <X size={20} className="theme-text-faint" />
               </button>
             </div>
 
             <div className="max-h-[60vh] overflow-y-auto p-4 space-y-2">
               {query === "" ? (
                 <div className="p-8 text-center space-y-2">
-                  <p className="font-bold text-secondary/60">Quick Search</p>
-                  <p className="text-xs text-secondary/30 italic">Search for programs, news, or institutional documents.</p>
+                  <p className="font-bold theme-text-muted">Quick Search</p>
+                  <p className="text-xs theme-text-faint italic">Search for programs, news, or institutional documents.</p>
                 </div>
               ) : results.length > 0 ? (
                 results.map((res, i) => (
@@ -69,19 +69,19 @@ export default function GlobalSearch() {
                         {res.icon}
                       </div>
                       <div>
-                        <p className="font-bold text-secondary">{res.title}</p>
-                        <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/30">{res.type}</p>
+                        <p className="font-bold theme-text-strong">{res.title}</p>
+                        <p className="text-[10px] font-bold uppercase tracking-widest theme-text-faint">{res.type}</p>
                       </div>
                     </div>
                     <ArrowRight size={18} className="text-secondary/0 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </div>
                 ))
               ) : (
-                <div className="p-12 text-center text-secondary/40 italic">No results found for "{query}"</div>
+                <div className="p-12 text-center theme-text-faint italic">No results found for "{query}"</div>
               )}
             </div>
 
-            <div className="p-4 bg-bg-soft/50 border-t border-secondary/5 flex justify-between text-[10px] font-bold uppercase tracking-widest text-secondary/30">
+            <div className="p-4 bg-bg-soft/50 border-t border-secondary/5 flex justify-between text-[10px] font-bold uppercase tracking-widest theme-text-faint">
               <div className="flex gap-4">
                 <span>Enter to select</span>
                 <span>Esc to close</span>

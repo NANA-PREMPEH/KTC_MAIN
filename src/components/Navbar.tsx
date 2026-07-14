@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, GraduationCap, ChevronDown } from "lucide-react";
+import { Menu, X, GraduationCap } from "lucide-react";
 import GlobalSearch from "./GlobalSearch";
 import ThemeToggle from "./ThemeToggle_v2";
 
@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 w-full z-50 px-4 py-3">
-      <div className="max-w-7xl mx-auto glass rounded-2xl md:rounded-full px-6 py-3 flex items-center justify-between shadow-lg">
+      <div className="max-w-7xl mx-auto glass theme-shadow-strong rounded-2xl md:rounded-full px-6 py-3 flex items-center justify-between shadow-lg">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
@@ -28,7 +28,7 @@ export default function Navbar() {
           </div>
           <div className="flex flex-col">
             <span className="font-heading font-black text-xl leading-none text-primary">KTC</span>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-secondary/60">Ghana</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest theme-text-muted">Ghana</span>
           </div>
         </Link>
 
@@ -38,7 +38,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="font-heading font-bold text-sm text-secondary/80 hover:text-primary transition-colors"
+              className="font-heading font-bold text-sm theme-text-soft hover:text-primary transition-colors"
             >
               {link.name}
             </Link>
@@ -59,7 +59,7 @@ export default function Navbar() {
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-secondary hover:text-primary transition-colors"
+            className="md:hidden p-2 theme-text-soft hover:text-primary transition-colors"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -68,14 +68,14 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-20 left-4 right-4 glass rounded-3xl p-6 shadow-2xl animate-in slide-in-from-top-4 duration-300">
+        <div className="md:hidden absolute top-20 left-4 right-4 glass theme-shadow-strong rounded-3xl p-6 shadow-2xl animate-in slide-in-from-top-4 duration-300">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="font-heading font-bold text-lg text-secondary border-b border-secondary/5 pb-2"
+                className="font-heading font-bold text-lg theme-text-strong border-b theme-border-soft pb-2"
               >
                 {link.name}
               </Link>
