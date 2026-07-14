@@ -1,0 +1,14 @@
+- Cleaning dist dir C:/Users/HP/Documents/GitHub/KTC_MAIN/cms/dist
+√ Cleaning dist dir (425ms)
+- Loading Strapi
+- Building build context
+√ Building build context (345ms)
+- Creating admin
+√ Creating admin (3400ms)
+√ Loading Strapi (10641ms)
+- Generating types
+√ Generating types (4384ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/HP/Documents/GitHub/KTC_MAIN/cms/dist
+√ Cleaning dist dir (911ms)
+√ Compiling TS (23091ms)

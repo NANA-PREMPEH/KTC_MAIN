@@ -3,13 +3,32 @@
 import { useState, useEffect } from "react";
 import { Sun, Moon } from "lucide-react";
 
+const THEME_STORAGE_KEY = "theme";
+
+function readStoredTheme(): "light" | "dark" | null {
+  try {
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    return savedTheme === "light" || savedTheme === "dark" ? savedTheme : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeStoredTheme(theme: "light" | "dark") {
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+  } catch {
+    // Ignore storage failures so theme switching still works in restricted browsers.
+  }
+}
+
 export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
     setMounted(true);
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+    const savedTheme = readStoredTheme();
     if (savedTheme) {
       setTheme(savedTheme);
       document.documentElement.classList.toggle("dark", savedTheme === "dark");
@@ -22,7 +41,7 @@ export default function ThemeToggle() {
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
+    writeStoredTheme(newTheme);
     document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
 

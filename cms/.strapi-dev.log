@@ -1,0 +1,5 @@
+
+> cms@0.1.0 develop
+> strapi develop
+
+┌──────────────────────────────────────────────────────────────────────────────┐│                                                                              ││   Error: ENOENT: no such file or directory, open                             ││   'C:\Users\HP\Documents\GitHub\KTC_MAIN\cms\dist\src\api\announcement\con   ││   tent-types\announcement\schema.json'                                       ││                                                                              │└──────────────────────────────────────────────────────────────────────────────┘
